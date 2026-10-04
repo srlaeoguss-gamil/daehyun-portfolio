@@ -4,11 +4,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import logoImage from './logo.png';
 import './css/header.scss'; 
-export default function Header({
-  children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
+export default function Header() {
   return (
     <header className='header'>
       <h1>
