@@ -1,0 +1,71 @@
+@use '_colors.scss' as *;
+
+
+:root {
+   @each $name, $shades in $colors {
+    /*#{$name}*/
+    @each $step, $value in $shades {
+      --#{$name}-#{$step}: #{$value};
+    }
+  }
+  @each $T-name, $items in $transparent-rgbs {
+    /*#{$T-name} #{$items}*/
+    @for $i from 1 through 11 {
+      $percent: $i * 5;
+      $alpha: $percent / 100;
+      --#{$T-name}-t-#{$percent}per: rgba(#{$items}, #{$alpha});
+    }
+  }
+}
+/*bg*/
+@each $name, $shades in $colors {
+  @each $step, $value in $shades {
+    .bg-#{$name}-#{$step}{background:var(--#{$name}-#{$step}) !important;}
+    .dark-mode .dark-bg-#{$name}-#{$step}{background:var(--#{$name}-#{$step}) !important;}
+  }
+}
+@each $T-name, $items in $transparent-rgbs {
+    /*#{$T-name} #{$items}*/
+  @for $i from 1 through 11 {
+    $percent: $i * 5;
+    $alpha: $percent / 100;
+    .bg-#{$T-name}-#{$percent}per{
+      background-color:var(--#{$T-name}-t-#{$percent}per) !important;
+    };
+    .dark-mode .dark-bg-#{$T-name}-#{$percent}per{
+      background-color:var(--#{$T-name}-t-#{$percent}per) !important;
+    };
+  }
+  
+}
+/*color*/
+@each $name, $shades in $colors {
+  @each $step, $value in $shades {
+    .text-#{$name}-#{$step}{color:var(--#{$name}-#{$step}) !important;}
+    .dark-mode .dark-text-#{$name}-#{$step}{color:var(--#{$name}-#{$step}) !important;}
+  }
+}
+/*bc*/
+@each $name, $shades in $colors {
+  @each $step, $value in $shades {
+   
+    .bc-#{$name}-#{$step}{border-color:var(--#{$name}-#{$step}) !important;  border-style: solid;}
+    .dark-mode .dark-bc-#{$name}-#{$step}{border-color:var(--#{$name}-#{$step}) !important;  border-style: solid;}
+  }
+}
+@each $T-name, $items in $transparent-rgbs {
+    /*#{$T-name} #{$items}*/
+  @for $i from 1 through 11 {
+    $percent: $i * 5;
+    $alpha: $percent / 100;
+    .bc-#{$T-name}-#{$percent}per{
+      border-style: solid;
+      border-color:var(--#{$T-name}-t-#{$percent}per) !important;
+    };
+    .dark-mode .dark-bc-#{$T-name}-#{$percent}per{
+      border-style: solid;
+      border-color:var(--#{$T-name}-t-#{$percent}per) !important;
+    };
+  }
+  
+}

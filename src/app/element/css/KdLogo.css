@@ -1,0 +1,76 @@
+/* css/KdLogo.css  (전역 CSS)
+   ─ 트리거 방식: 부모 요소에 .ani-on 클래스가 추가되면 애니메이션 시작
+   ─ .ani-on 이 없을 때: 로고는 그려지지 않은 숨김 상태로 대기
+   ─ .ani-on 을 제거했다가 다시 추가하면 처음부터 재생됨
+*/
+
+.kd-logo {
+  --navy: #1B2955;
+  --green: #53C18E;
+  --grid: #CBD0D5;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── 대기 상태 (ani-on 없음): 전부 숨김 ── */
+.kd-grid-line {
+  stroke: var(--grid);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.kd-piece {
+  fill-rule: evenodd;
+  stroke-width: 1.5;
+  fill-opacity: 0;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.kd-navy  { fill: var(--navy);  stroke: var(--navy); }
+.kd-green { fill: var(--green); stroke: var(--green); }
+
+.kd-tagline {
+  fill: var(--navy);
+  opacity: 0;
+}
+
+/* ── 재생 상태: 부모에 .ani-on 추가 시 발동 ── */
+.ani-on .kd-grid-line {
+  animation: kd-draw 0.6s ease-out var(--d, 0s) forwards;
+}
+
+.ani-on .kd-piece {
+  animation:
+    kd-draw var(--dur, 0.8s) cubic-bezier(0.6, 0.05, 0.3, 1) var(--d, 0s) forwards,
+    kd-fillin 0.5s ease calc(var(--d, 0s) + var(--dur, 0.8s) * 0.75) forwards,
+    kd-strokeout 0.4s ease calc(var(--d, 0s) + var(--dur, 0.8s) + 0.3s) forwards;
+}
+
+.ani-on .kd-tagline {
+  animation: kd-fadeup 0.8s ease-out 3.15s forwards;
+}
+
+@keyframes kd-draw      { to { stroke-dashoffset: 0; } }
+@keyframes kd-fillin    { to { fill-opacity: 1; } }
+@keyframes kd-strokeout { to { stroke-opacity: 0; } }
+@keyframes kd-fadeup {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 모션 최소화 설정 사용자는 애니메이션 없이 즉시 완성 상태 표시 */
+@media (prefers-reduced-motion: reduce) {
+  .kd-grid-line,
+  .kd-piece {
+    animation: none !important;
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+  .kd-piece { stroke: none; }
+  .kd-tagline { animation: none !important; opacity: 1; }
+}

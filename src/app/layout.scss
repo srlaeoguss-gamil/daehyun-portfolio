@@ -1,0 +1,9 @@
+@charset "UTF-8";
+body{
+	background-image: url('./img/bgimg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	&.overflow-hidden{
+		overflow: hidden;
+	}
+}

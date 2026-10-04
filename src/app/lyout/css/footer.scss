@@ -1,0 +1,282 @@
+//여긴 header를 수정하는 scss 파일입니다.
+@use '../../css/_colors' as *;
+@use '../../css/shadow_scss.scss' as *;
+
+@keyframes terminal-blink-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+
+.footer-wrap {
+  width: 100%;
+  padding: 40px 20px 60px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+
+  .terminal-container {
+    /* 터미널 전체 껍데기 */
+    width: 100%;
+    $Wval: 1524px;
+    max-width: $Wval;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    z-index: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    background: #fff0;
+    &.hide-ani {
+      animation: terminal-blink-out 0.5s step-end forwards;
+      pointer-events: none;
+    }
+
+    /* 1. 상단 윈도우 헤더 */
+    .terminal-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 44px;
+      padding: 0 16px;
+      background-color: var(--gray-100, #f6f8fa);
+      border: 1px solid var(--gray-300, #d0d7de);
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      overflow: hidden;
+
+      .title {
+        color: var(--gray-800, #24292f);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: -0.2px;
+        font-family: 'Consolas', 'Menlo', monospace;
+        background: #fff0;
+      }
+
+      /* 헤더 우측 컨트롤 버튼 */
+      .window-controls {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .dot {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 26px;
+          height: 26px;
+          border-radius: 4px;
+          font-size: 13px;
+          color: var(--gray-600, #57606a);
+          cursor: pointer;
+          transition: all 0.15s ease;
+
+          &:hover {
+            background-color: var(--gray-200, #eaeef2);
+            color: var(--gray-900, #1f2328);
+          }
+
+          &.icon-xmark:hover {
+            background-color: #ffebe9;
+            color: #cf222e;
+          }
+        }
+      }
+    }
+
+    /* 2. 터미널 본문 영역 */
+    .terminal-body {
+      width: 100%;
+      background-color: #ffffff;
+      padding: 28px;
+      border: 1px solid var(--gray-300, #d0d7de);
+      border-top: 0;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      font-family: 'Pretendard', -apple-system, monospace;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--gray-800, #24292f);
+      height:auto;
+      /* 커맨드 라인 ($ npx ...) */
+      .cmd-line {
+        font-family: 'Consolas', 'Courier New', monospace;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--gray-900, #1f2328);
+        margin-bottom: 16px;
+        word-break: break-all;
+        white-space: normal;
+        .prompt {
+          color: #0969da; // 화이트 모드 가독성 블루
+          font-weight: 700;
+          margin-right: 8px;
+        }
+      }
+
+      /* 출력 로그 */
+      .log-item {
+        color: var(--gray-600, #57606a);
+        font-size: 13.5px;
+        margin-bottom: 6px;
+        font-family: 'Consolas', monospace;
+        white-space: normal;
+      }
+
+      /* 마무리 메시지 카드 박스 */
+      .closing-message {
+        margin: 20px 0;
+        padding: 20px 24px;
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid #0969da;
+        border-radius: 0 8px 8px 0;
+        white-space: normal;
+        .msg-title {
+          font-size: 14px;
+          font-weight: 700;
+          color: #0969da;
+          margin-bottom: 8px;
+        }
+
+        .msg-content {
+          font-size: 15px;
+          color: var(--gray-800, #334155);
+          line-height: 1.8;
+          white-space: normal;
+
+          strong {
+            color: #0969da;
+            font-weight: 700;
+          }
+        }
+      }
+
+      /* 3. 하단 액션 버튼 그룹 (이메일 복사, 깃허브, Top) */
+      .terminal-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 28px 0 20px;
+
+        .term-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          height: 38px;
+          padding: 0 16px;
+          border-radius: 6px;
+          font-size: 13.5px;
+          font-weight: 600;
+          cursor: pointer;
+          text-decoration: none;
+          border: 1px solid var(--gray-300, #d0d7de);
+          background-color: var(--gray-100, #f6f8fa);
+          color: var(--gray-800, #24292f);
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+          i {
+            font-size: 15px;
+            color: var(--gray-600, #57606a);
+            transition: color 0.2s;
+          }
+
+          &:hover {
+            background-color: #ffffff;
+            border-color: #0969da;
+            color: #0969da;
+            box-shadow: 0 2px 6px rgba(9, 105, 218, 0.1);
+
+            i {
+              color: #0969da;
+            }
+            span{
+              color:inherit
+            }
+          }
+
+          /* 이메일 복사 버튼 강조 */
+          &.email {
+            background-color: #f0f7ff;
+            border-color: #b6d7ff;
+            color: #0969da;
+
+            i {
+              color: #0969da;
+            }
+
+            &:hover {
+              background-color: #0969da;
+              border-color: #0969da;
+              color: #ffffff;
+
+              i {
+                color: #ffffff;
+              }
+              span{
+                color:inherit
+              }
+            }
+          }
+
+          /* 상단 이동(TOP) 버튼 */
+          &.top {
+            margin-left: auto;
+            background-color: transparent;
+
+            &:hover {
+              border-color: var(--gray-800, #24292f);
+              color: var(--gray-900, #1f2328);
+              
+              span{
+                color:inherit
+              }
+            }
+          }
+        }
+      }
+
+      /* 카피라이트 라인 */
+      .copyright-line {
+        font-size: 12.5px;
+        color: var(--gray-500, #8c959f);
+        border-top: 1px solid var(--gray-200, #eaeef2);
+        padding-top: 18px;
+        margin-top: 8px;
+        white-space: normal;
+      }
+    }
+  }
+}
+
+/* 모바일 반응형 처리 */
+@media (min-width: 1280px) {
+
+}

@@ -1,0 +1,810 @@
+@use '_colors.scss' as *;
+@use '_mixins.scss' as *;
+[class*='btn-'] {
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #fff;
+  border: 0;
+  padding: 0;
+  font-weight: 600;
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  border-color:#fff0;
+  &>* {
+    padding: 0 3px;
+    color: inherit;
+    font-size: inherit;
+    white-space: nowrap;
+  }
+
+  &>i {
+    font-size: calc(100% + 4px);
+    color: inherit;
+  }
+
+  &>span {
+    font-weight: inherit;
+    line-height: 1;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    background-color: var(--gray-t-40per);
+    color: var(--gray-t-55per);
+  }
+
+  .dark-mode & {
+
+    &:disabled,
+    &:disabled:hover {
+      background-color: var(--gray-t-40per);
+      color: var(--gray-t-55per);
+    }
+  }
+}
+
+
+
+@each $name, $shades in $colors {
+  .btn-#{$name}{
+    background-color:var(--#{$name}-500);
+    border-color:var(--#{$name}-500);
+    &:hover,&.hover{
+      background-color:var(--#{$name}-600);
+    }
+  }
+}
+
+
+
+[class*="-outline"]{
+  border-style: solid;
+  background-color:#fff0;
+  &:disabled,&:disabled:hover{
+    background-color: #fff0;
+    border-color:var(--gray-t-40per);
+    color:var(--gray-t-40per); 
+  }
+  .dark-mode &{
+    &:disabled,&:disabled:hover{
+      background-color: #fff0;
+      border-color:var(--gray-t-40per);
+      color:var(--gray-t-40per); 
+    }
+  }
+}
+@each $name, $shades in $colors {
+  .btn-#{$name}-outline{
+      border-color:var(--#{$name}-500);
+      color:var(--#{$name}-500); 
+      &:hover,&.hover{
+        background-color:var(--#{$name}-t-5per);
+        color:var(--#{$name}-600); 
+      }
+      /*dark-mode*/
+    .dark-mode &{
+      color:var(--#{$name}-400);
+      &:hover,&.hover{
+        background-color:var(--#{$name}-t-15per);
+        border-color:var(--#{$name}-600);
+        color:var(--#{$name}-600); 
+      }
+    }
+  }
+}
+[class*="-outline-gray"]{
+  border-color:var(--gray-300);
+  &:disabled,&:disabled:hover{
+    border-color:var(--gray-t-40per);
+    color:var(--gray-t-55per);
+    background-color:var(--gray-t-25per);
+  }
+  .dark-mode &{
+    border-color:var(--gray-t-40per);
+    &:disabled,&:disabled:hover{
+      border-color:var(--gray-t-40per);
+      color:var(--gray-t-55per);
+      background-color:var(--gray-t-25per);
+    }
+  }
+}
+@each $name, $shades in $colors {
+  .btn-#{$name}-outline-gray{ 
+    color:var(--#{$name}-500); 
+    &:hover,&.hover{
+      border-color:var(--#{$name}-500);
+      background-color:var(--#{$name}-t-5per);
+      color:var(--#{$name}-600); 
+    }
+    /*dark-mode*/
+    .dark-mode &{
+      color:var(--#{$name}-400);
+      background-color: var(--gray-900);
+      
+      &:hover,&.hover{
+        background-color:var(--#{$name}-t-15per);
+        border-color:var(--#{$name}-600);
+        color:var(--#{$name}-600); 
+      }
+    }
+  }
+}
+[class*='-subtle']{
+  &:disabled,&:disabled:hover{
+    background-color: var(--gray-t-25per);
+    color:var(--gray-t-55per);
+  }
+  /*dark-mode*/
+  .dark-mode &{
+    &:disabled,&:disabled:hover{
+      background-color: var(--gray-t-25per);
+      color:var(--gray-t-55per);
+    }
+  }
+}
+@each $name, $shades in $colors {
+  .btn-#{$name}-subtle{
+    background-color:var(--#{$name}-t-10per);
+    color:var(--#{$name}-500); 
+    color:var(--#{$name}-600); 
+    &:hover,&.hover{
+      background-color:var(--#{$name}-t-15per);
+    }
+    /*dark-mode*/
+    .dark-mode &{
+      //color:#fff;
+      background-color: var(--#{$name}-t-20per);
+      &:hover,&.hover{
+        background-color:var(--#{$name}-t-35per);
+      }
+    }
+  }
+}
+[class*="-named"]{
+  background-color:#fff0;
+  &:disabled,&:disabled:hover{
+    color:var(--gray-t-55per);
+    background-color:#fff0;
+  }
+  /*dark-mode*/
+  .dark-mode &{
+    &:disabled,&:disabled:hover{
+      color:var(--gray-t-55per);
+      background-color:#fff0;
+    }
+  }
+}
+@each $name, $shades in $colors {
+  .btn-#{$name}-named{
+    color:var(--#{$name}-500); 
+    &:hover,&.hover{
+      color:var(--#{$name}-600); 
+    }
+    /*dark-mode*/
+    .dark-mode &{
+      color:var(--#{$name}-400); 
+      &:hover,&.hover{
+        color:var(--#{$name}-500); 
+      }
+    }
+  }
+}
+$txt_color_arr:lime,green,mint,cyan,orange,yellow;//텍스트 컬러 변경 사항
+@each $txt_color_arritem in $txt_color_arr {
+  .btn-#{$txt_color_arritem}{
+    color:var(--gray-950);
+  }
+  .btn-#{$txt_color_arritem}-outline,
+  .btn-#{$txt_color_arritem}-outline-gray,
+  .btn-#{$txt_color_arritem}-subtle,
+  .btn-#{$txt_color_arritem}-named{
+    color:var(--#{$txt_color_arritem}-700);
+  }
+}
+
+$button-sizes: (
+  xl:(fs: 20px, fs-icon: 2px, height: 56px, padding: 20px, gap: 4px, icon-padding: 18px,icon-fs:28px, radius: 12px, border: 1.5px, fw:700),
+  l:(fs: 18px, fs-icon: 2px, height: 44px, padding: 16px, gap: 3px, icon-padding: 14.5px,icon-fs:21px, radius: 10px, border: 1.5px, fw:700),
+  //m:(fs: 15px, fs-icon: 3px, height: 32px, padding: 14px, gap: 3px, icon-padding: 11px,icon-fs:15px, radius: 8px, border: 1px, fw:600),
+   m:(fs: 14px, fs-icon: 3px, height: 32px, padding: 14px, gap: 3px, icon-padding: 11px,icon-fs:15px, radius: 8px, border: 1px, fw:600),
+  s:(fs: 12px, fs-icon: 2px, height: 24px, padding: 12px, gap: 2px, icon-padding: 6.5px,icon-fs:14px, radius: 6px, border: 1px, fw:600),
+  xs:(fs: 10px, fs-icon: 1px, height: 20px, padding: 8px, gap: 2px, icon-padding: 6.5px,icon-fs:10px, radius: 4px, border: 1px, fw:600)
+);
+$sizeTablet: 768px;
+$sizePC: 1440px;
+@each $name, $props in $button-sizes {
+  .bs-#{$name} {
+    font-size: map-get($props, fs);
+    height: map-get($props, height);
+    padding-left: map-get($props, padding) - map-get($props, gap);
+    padding-right: map-get($props, padding) - map-get($props, gap);
+    border-radius: map-get($props, radius);
+    border-width: map-get($props, border);
+    font-weight: map-get($props, fw);
+    box-sizing: border-box;
+    & > * {
+      padding-left: map-get($props, gap);
+      padding-right: map-get($props, gap);
+    }
+
+    & > i {
+      font-size: calc(100% + #{map-get($props, fs-icon)});
+    }
+
+    &.only-icon {  
+      $icon-gap: map-get($props, icon-padding) - map-get($props, gap) - map-get($props, border) + 0.5px;
+      padding-left: $icon-gap;
+      padding-right: $icon-gap;
+      &>i{
+        padding:0;
+        font-size: map-get($props, icon-fs) ;
+      }
+
+    }
+  }
+}
+@media (min-width: #{$sizeTablet}){
+ @each $name, $props in $button-sizes {
+  .bs-md-#{$name} {
+    font-size: map-get($props, fs);
+    height: map-get($props, height);
+    padding-left: map-get($props, padding) - map-get($props, gap);
+    padding-right: map-get($props, padding) - map-get($props, gap);
+    border-radius: map-get($props, radius);
+    border-width: map-get($props, border);
+    font-weight: map-get($props, fw);
+    box-sizing: border-box;
+    & > * {
+      padding-left: map-get($props, gap);
+      padding-right: map-get($props, gap);
+    }
+
+    & > i {
+      font-size: calc(100% + #{map-get($props, fs-icon)});
+    }
+
+    &.only-icon {
+      $icon-gap: map-get($props, icon-padding) - map-get($props, gap);
+      padding-left: $icon-gap;
+      padding-right: $icon-gap;
+
+      &[class*='-outline'] {
+        padding-left: $icon-gap - 1px;
+        padding-right: $icon-gap - 1px;
+      }
+    }
+  }
+ }
+}
+@media (min-width: #{$sizePC}){
+  @each $name, $props in $button-sizes {
+  .bs-xl-#{$name} {
+    font-size: map-get($props, fs);
+    height: map-get($props, height);
+    padding-left: map-get($props, padding) - map-get($props, gap);
+    padding-right: map-get($props, padding) - map-get($props, gap);
+    border-radius: map-get($props, radius);
+    border-width: map-get($props, border);
+    font-weight: map-get($props, fw);
+    box-sizing: border-box;
+    & > * {
+      padding-left: map-get($props, gap);
+      padding-right: map-get($props, gap);
+    }
+
+    & > i {
+      font-size: calc(100% + #{map-get($props, fs-icon)});
+    }
+
+    &.only-icon {
+      $icon-gap: map-get($props, icon-padding) - map-get($props, gap);
+      padding-left: $icon-gap;
+      padding-right: $icon-gap;
+
+      &[class*='-outline'] {
+        padding-left: $icon-gap - 1px;
+        padding-right: $icon-gap - 1px;
+      }
+    }
+  }
+  }
+}
+.btn-Ai-blue{
+  background:linear-gradient(103deg, var(--blue-500) 4.83%, var(--purple-500) 104.91%);
+  border:0;
+}
+.btn-Ai-blue-outline{
+  position: relative;
+  &::before{
+    content:"";
+    background:linear-gradient(103deg, var(--blue-500) 4.83%, var(--purple-500) 104.91%);
+    position: absolute;
+    border-radius: inherit;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+  }
+ &::after{
+    content:"";
+    background:#fff;
+    position: absolute;
+    border-radius: inherit;
+    $bordervals : 1px;
+    left:$bordervals;
+    top:$bordervals;
+    right:$bordervals;
+    bottom:$bordervals;
+  }
+  &>*{
+    position: relative;
+    z-index: 1;
+    color:var(--gray-950);
+  }
+  i{
+    color:var(--gray-950);
+  }
+}
+.btn-black {
+  background: var(--gray-950);
+  
+  &:hover,
+  &.hover {
+    background-color: var(--gray-600);
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    background-color: var(--gray-t-40per);
+    color: var(--gray-55per);
+  }
+
+  .dark-mode & {
+    background-color: #fff;
+    color: var(--gray-950);
+
+    &:hover,
+    &.hover {
+      background-color: var(--gray-50);
+      color: #495157;
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      background-color: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.20);
+    }
+  }
+
+  &-outline {
+    border-color: var(--gray-950);
+    color: var(--gray-950);
+    
+    &:hover,
+    &.hover {
+      border-color: #6C7680;
+      background-color: var(--black-t-5per);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      background-color: transparent;
+      border-color: var(--gray-t-40per);
+      color: var(--gray-t-40per);
+    }
+
+    .dark-mode & {
+      border-color: #fff;
+      color: #fff;
+
+      &:hover,
+      &.hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: var(--gray-500);
+        color: var(--gray-400);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        background-color: transparent;
+        border-color: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.20);
+      }
+    }
+  }
+
+  &-outline-gray {
+    border-color: var(--gray-300);
+    color: var(--gray-950);
+
+    &:hover,
+    &.hover {
+      border-color: #6C7680;
+      background-color: var(--black-t-5per);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      background-color: var(--gray-t-25per);
+      border-color: var(--gray-t-40per);
+      color: var(--gray-t-55per);
+    }
+
+    .dark-mode & {
+      background-color: var(--gray-950);
+      border-color: var(--gray-t-40per);
+      color: #fff;
+
+      &:hover,
+      &.hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: var(--gray-500);
+        color: var(--gray-400);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        background-color: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.20);
+      }
+    }
+  }
+
+  &-subtle {
+    background-color: var(--black-t-10per);
+    color: var(--gray-950);
+
+    &:hover,
+    &.hover {
+      background-color: var(--black-t-15per);
+      color: var(--gray-800);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      background-color: var(--gray-t-25per);
+      color: var(--gray-t-55per);
+    }
+
+    .dark-mode & {
+      background-color: var(--white-t-10per);
+      color: #fff;
+
+      &:hover,
+      &.hover {
+        background-color: var(--white-t-15per);
+        color: var(--gray-400);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        background-color: rgba(255, 255, 255, 0.07);
+        color: var(--white-t-20per);
+      }
+    }
+  }
+
+  &-named {
+    background: transparent;
+    color: var(--gray-950);
+
+    &:hover,
+    &.hover {
+      color: var(--gray-800);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      color: var(--gray-t-55per);
+    }
+
+    .dark-mode & {
+      color: #fff;
+
+      &:hover,
+      &.hover {
+        color: var(--gray-400);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        color: var(--white-t-20per);
+      }
+    }
+  }
+}
+/*
+.btn-black{
+  background:var(--gray-950);
+  &:hover,&.hover{
+    background-color:var(--gray-600);
+  }
+  &:disabled,&:disabled:hover{
+    background-color:var(--gray-t-40per);
+    color:var(--gray-55per);
+  }
+  .dark-mode &{
+    background-color: #fff;
+    color:var(--gray-950);
+    &:hover,&.hover{
+      background-color:var(--gray-50);
+      color:#495157;
+    }
+    &:disabled,&:disabled:hover{
+      background-color:rgba(255, 255, 255, 0.07);
+      color:rgba(255, 255, 255, 0.20);
+    }
+  }
+  
+}
+.btn-black-outline{
+  border-color:var(--gray-950);
+  color:var(--gray-950);
+  &:hover,&.hover{
+    border-color:#6C7680;
+    background-color: var(--black-t-5per);
+  }
+  &:disabled,&:disabled:hover{
+    background-color: #fff0;
+    border-color:var(--gray-t-40per);
+    color:var(--gray-t-40per); 
+  }
+  .dark-mode &{
+    border-color: #fff;
+    color:#fff;
+    &:hover,&.hover{
+      background-color:rgba(255, 255, 255, 0.05);
+      border-color:var(--gray-500);
+      color:var(--gray-400);
+    }
+    &:disabled,&:disabled:hover{
+      background-color: #fff0;
+      border-color: rgba(255, 255, 255, 0.15);
+      color:rgba(255, 255, 255, 0.20);
+    }
+  }
+}
+.btn-black-outline-gray{
+  border-color:var(--gray-300);
+  color:var(--gray-950);
+  &:hover,&.hover{
+    border-color:#6C7680;
+    background-color: var(--black-t-5per);
+  }
+  &:disabled,&:disabled:hover{
+    background-color: var(--gray-t-25per);
+    border-color:var(--gray-t-40per);
+    color:var(--gray-t-55per); 
+  }
+  .dark-mode &{
+    background-color: var(--gray-950);
+    border-color: var(--gray-t-40per);
+    color:#fff;
+    &:hover,&.hover{
+      background-color:rgba(255, 255, 255, 0.05);
+      border-color:var(--gray-500);
+      color:var(--gray-400);
+    }
+    &:disabled,&:disabled:hover{
+      background-color: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.15);
+      color:rgba(255, 255, 255, 0.20);
+    }
+  }
+
+  
+}
+.btn-black-subtle{
+  background-color: var(--black-t-10per);
+  color:var(--gray-950);
+  &:hover,&.hover{
+    background-color: var(--black-t-15per);
+    color:var(--gray-800);
+  }
+  &:disabled,&:disabled:hover{
+    background-color: var(--gray-t-25per);
+    color:var(--gray-t-55per); 
+  }
+  .dark-mode &{
+    background-color:var(--white-t-10per);
+    color:#fff;
+    &:hover,&.hover{
+      background-color:var(--white-t-15per);
+      color:var(--gray-400);
+    }
+    &:disabled,&:disabled:hover{
+      background-color: rgba(255, 255, 255, 0.07);
+      color:var(--white-t-20per);
+    }
+  }
+  
+}
+.btn-black-named{
+  color:var(--gray-950);
+  background:#fff0;
+  &:hover,&.hover{
+    color:var(--gray-800);
+  }
+  &:disabled,&:disabled:hover{
+    color:var(--gray-t-55per); 
+  }
+  .dark-mode &{
+    color:#fff;
+    &:hover,&.hover{
+      color:var(--gray-400);
+    }
+    &:disabled,&:disabled:hover{
+      color:var(--white-t-20per);
+    }
+  }
+}
+  */
+.btn-white {
+  background: #fff;
+  color: var(--gray-950);
+
+  &:hover,
+  &.hover {
+    background-color: #F4F5F6;
+    color: #495157;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    color: var(--gray-55per);
+    background-color: var(--gray-t-40per);
+  }
+
+  .dark-mode & {
+    background-color: var(--gray-950);
+    color: #fff;
+
+    &:hover,
+    &.hover {
+      background-color: #262B2E;
+      color: var(--gray-100);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--white-t-20per);
+    }
+  }
+
+  &-outline {
+    border-color: #fff;
+    color: #fff;
+
+    &:hover,
+    &.hover {
+      border-color: var(--gray-100);
+      color: var(--gray-100);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      color: var(--gray-t-55per);
+      border-color: var(--gray-t-40per);
+    }
+
+    .dark-mode & {
+      &:hover,
+      &.hover {
+        border-color: #6C7680;
+        color: var(--gray-400);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        border-color: var(--white-t-15per);
+      }
+    }
+  }
+
+  &-outline-gray {
+    border-color: var(--gray-300);
+    color: var(--gray-950);
+    background-color: #fff;
+
+    &:hover,
+    &.hover {
+      background-color: var(--gray-t-5per);
+      color: var(--gray-100);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      color: var(--gray-t-55per);
+      border-color: var(--gray-t-40per);
+      background-color: var(--gray-t-25per);
+    }
+
+    .dark-mode & {
+      background-color: var(--gray-900);
+      border-color: var(--gray-t-40per);
+      color: #fff;
+
+      &:hover,
+      &.hover {
+        background-color: var(--white-t-5per);
+        border-color: #6C7680;
+        color: var(--gray-400);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        border-color: var(--white-t-15per);
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--white-t-20per);
+      }
+    }
+  }
+
+  &-subtle {
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+
+    &:hover,
+    &.hover {
+      color: var(--gray-t-10per);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      color: var(--gray-t-55per);
+      background-color: var(--gray-t-25per);
+    }
+
+    .dark-mode & {
+      background-color: var(--white-t-10per);
+      color: #fff;
+
+      &:hover,
+      &.hover {
+        background-color: var(--white-t-15per);
+        color: var(--gray-400);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--white-t-20per);
+      }
+    }
+  }
+
+  &-named {
+    color: #fff;
+
+    &:hover,
+    &.hover {
+      color: var(--gray-100);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      color: var(--gray-t-55per);
+    }
+
+    .dark-mode & {
+      color: #fff;
+
+      &:hover,
+      &.hover {
+        color: var(--gray-100);
+      }
+
+      &:disabled,
+      &:disabled:hover {
+        color: var(--gray-t-55per);
+      }
+    }
+  }
+}

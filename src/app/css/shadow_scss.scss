@@ -1,0 +1,192 @@
+
+$rgbaVal-1:rgba(14, 15, 17, 0.03);
+$rgbaVal-2:rgba(14, 15, 17, 0.05);
+$rgbaVal-3:rgba(14, 15, 17, 0.07);
+
+
+$shadowCenterPosition-1:0px 0px 3px 0px;
+$shadowCenterPosition-2:0px 0px 6px 0px;
+$shadowCenterPosition-3:0px 0px 2px 0px;
+$shadowCenterPosition-4:0px 0px 8px 0px;
+$shadowCenterPosition-5:0px 0px 16px 0px;
+$shadowCenterPosition-6:0px 0px 24px 0px;
+$shadowCenterPosition-7:0px 0px 32px 0px;
+$shadowCenterPosition-8:0px 0px 56px 0px;
+$shadowCenterPosition-9:0px 0px 72px 0px;
+
+$ShadowCenter-lev1:$shadowCenterPosition-1 $rgbaVal-1, $shadowCenterPosition-2 $rgbaVal-2;
+$ShadowCenter-lev2:$shadowCenterPosition-3 $rgbaVal-1, $shadowCenterPosition-2 $rgbaVal-2;
+$ShadowCenter-lev3:$shadowCenterPosition-4 $rgbaVal-1, $shadowCenterPosition-5 $rgbaVal-2, $shadowCenterPosition-6 $rgbaVal-2;
+$ShadowCenter-lev4:$shadowCenterPosition-5 $rgbaVal-1, $shadowCenterPosition-7 $rgbaVal-2, $shadowCenterPosition-8 $rgbaVal-3;
+$ShadowCenter-lev5:$shadowCenterPosition-6 $rgbaVal-3, $shadowCenterPosition-8 $rgbaVal-3, $shadowCenterPosition-9 $rgbaVal-3;
+
+$shadowBottomPosition-1:0px 1px 3px 0px;
+$shadowBottomPosition-2:0px 2px 6px 0px;
+$shadowBottomPosition-3:0px 2px 2px 0px;
+$shadowBottomPosition-4:0px 4px 6px 0px;
+$shadowBottomPosition-5:0px 4px 8px 0px;
+$shadowBottomPosition-6:0px 8px 16px 0px;
+$shadowBottomPosition-7:0px 16px 24px 0px;
+$shadowBottomPosition-8:0px 24px 32px 0px;
+$shadowBottomPosition-9:0px 32px 56px 0px;
+$shadowBottomPosition-10:0px 56px 72px 0px;
+
+$ShadowBottom-lev1:$shadowBottomPosition-1 $rgbaVal-1, $shadowBottomPosition-2 $rgbaVal-2;
+$ShadowBottom-lev2:$shadowBottomPosition-3 $rgbaVal-1, $shadowBottomPosition-4 $rgbaVal-2;
+$ShadowBottom-lev3:$shadowBottomPosition-5 $rgbaVal-1, $shadowBottomPosition-6 $rgbaVal-2, $shadowBottomPosition-7 $rgbaVal-2;
+$ShadowBottom-lev4:$shadowBottomPosition-6 $rgbaVal-1, $shadowBottomPosition-8 $rgbaVal-2, $shadowBottomPosition-9 $rgbaVal-3;
+$ShadowBottom-lev5:$shadowBottomPosition-7 $rgbaVal-3, $shadowBottomPosition-9 $rgbaVal-3, $shadowBottomPosition-10 $rgbaVal-3;
+
+$shadowRightPosition-1:1px 0px 3px 0px;
+$shadowRightPosition-2:2px 0px 6px 0px;
+$shadowRightPosition-3:2px 0px 2px 0px;
+$shadowRightPosition-4:4px 0px 6px 0px;
+$shadowRightPosition-5:4px 0px 8px 0px;
+$shadowRightPosition-6:8px 0px 16px 0px;
+$shadowRightPosition-7:16px 0px 24px 0px;
+$shadowRightPosition-8:24px 0px 32px 0px;
+$shadowRightPosition-9:32px 0px 56px 0px;
+$shadowRightPosition-10:56px 0px 72px 0px;
+
+$ShadowRight-lev1:$shadowRightPosition-1 $rgbaVal-1, $shadowRightPosition-2 $rgbaVal-2;
+$ShadowRight-lev2:$shadowRightPosition-3 $rgbaVal-1, $shadowRightPosition-4 $rgbaVal-2;
+$ShadowRight-lev3:$shadowRightPosition-5 $rgbaVal-1, $shadowRightPosition-6 $rgbaVal-2, $shadowRightPosition-7 $rgbaVal-2;
+$ShadowRight-lev4:$shadowRightPosition-6 $rgbaVal-1, $shadowRightPosition-8 $rgbaVal-2, $shadowRightPosition-9 $rgbaVal-3;
+$ShadowRight-lev5:$shadowRightPosition-7 $rgbaVal-3, $shadowRightPosition-9 $rgbaVal-3, $shadowRightPosition-10 $rgbaVal-3;
+
+$shadowLeftPosition-1:-1px 0px 3px 0px;
+$shadowLeftPosition-2:-2px 0px 6px 0px;
+$shadowLeftPosition-3:-2px 0px 2px 0px;
+$shadowLeftPosition-4:-4px 0px 6px 0px;
+$shadowLeftPosition-5:-4px 0px 8px 0px;
+$shadowLeftPosition-6:-8px 0px 16px 0px;
+$shadowLeftPosition-7:-16px 0px 24px 0px;
+$shadowLeftPosition-8:-24px 0px 32px 0px;
+$shadowLeftPosition-9:-32px 0px 56px 0px;
+$shadowLeftPosition-10:-56px 0px 72px 0px;
+
+$ShadowLeft-lev1:$shadowLeftPosition-1 $rgbaVal-1, $shadowLeftPosition-2 $rgbaVal-2;
+$ShadowLeft-lev2:$shadowLeftPosition-3 $rgbaVal-1, $shadowLeftPosition-4 $rgbaVal-2;
+$ShadowLeft-lev3:$shadowLeftPosition-5 $rgbaVal-1, $shadowLeftPosition-6 $rgbaVal-2, $shadowLeftPosition-7 $rgbaVal-2;
+$ShadowLeft-lev4:$shadowLeftPosition-6 $rgbaVal-1, $shadowLeftPosition-8 $rgbaVal-2, $shadowLeftPosition-9 $rgbaVal-3;
+$ShadowLeft-lev5:$shadowLeftPosition-7 $rgbaVal-3, $shadowLeftPosition-9 $rgbaVal-3, $shadowLeftPosition-10 $rgbaVal-3;
+
+$ShadowTopPosition-1:0px -1px 3px 0px;
+$ShadowTopPosition-2:0px -2px 6px 0px;
+$ShadowTopPosition-3:0px -2px 2px 0px;
+$ShadowTopPosition-4:0px -4px 6px 0px;
+$ShadowTopPosition-5:0px -4px 8px 0px;
+$ShadowTopPosition-6:0px -8px 16px 0px;
+$ShadowTopPosition-7:0px -16px 24px 0px;
+$ShadowTopPosition-8:0px -24px 32px 0px;
+$ShadowTopPosition-9:0px -32px 56px 0px;
+$ShadowTopPosition-10:0px -56px 72px 0px;
+
+$ShadowTop-lev1:$ShadowTopPosition-1 $rgbaVal-1, $ShadowTopPosition-2 $rgbaVal-2;
+$ShadowTop-lev2:$ShadowTopPosition-3 $rgbaVal-1, $ShadowTopPosition-4 $rgbaVal-2;
+$ShadowTop-lev3:$ShadowTopPosition-5 $rgbaVal-1, $ShadowTopPosition-6 $rgbaVal-2, $ShadowTopPosition-7 $rgbaVal-2;
+$ShadowTop-lev4:$ShadowTopPosition-6 $rgbaVal-1, $ShadowTopPosition-8 $rgbaVal-2, $ShadowTopPosition-9 $rgbaVal-3;
+$ShadowTop-lev5:$ShadowTopPosition-7 $rgbaVal-3, $ShadowTopPosition-9 $rgbaVal-3, $ShadowTopPosition-10 $rgbaVal-3;
+
+$Shadow45Position-1:1px 1px 3px 0px;
+$Shadow45Position-2:2px 2px 6px 0px;
+$Shadow45Position-3:2px 2px 2px 0px;
+$Shadow45Position-4:4px 4px 6px 0px;
+$Shadow45Position-5:4px 4px 8px 0px;
+$Shadow45Position-6:8px 8px 16px 0px;
+$Shadow45Position-7:16px 16px 24px 0px;
+$Shadow45Position-8:24px 24px 32px 0px;
+$Shadow45Position-9:32px 32px 56px 0px;
+$Shadow45Position-10:56px 56px 72px 0px;
+$Shadow45-lev1:$Shadow45Position-1 $rgbaVal-1, $Shadow45Position-2 $rgbaVal-2;
+$Shadow45-lev2:$Shadow45Position-3 $rgbaVal-1, $Shadow45Position-4 $rgbaVal-2;
+$Shadow45-lev3:$Shadow45Position-5 $rgbaVal-1, $Shadow45Position-6 $rgbaVal-2, $Shadow45Position-7 $rgbaVal-2;
+$Shadow45-lev4:$Shadow45Position-6 $rgbaVal-1, $Shadow45Position-8 $rgbaVal-2, $Shadow45Position-9 $rgbaVal-3;
+$Shadow45-lev5:$Shadow45Position-7 $rgbaVal-3, $Shadow45Position-9 $rgbaVal-3, $Shadow45Position-10 $rgbaVal-3;
+
+$Shadow-45Position-1:-1px 1px 3px 0px;
+$Shadow-45Position-2:-2px 2px 6px 0px;
+$Shadow-45Position-3:-2px 2px 2px 0px;
+$Shadow-45Position-4:-4px 4px 6px 0px;
+$Shadow-45Position-5:-4px 4px 8px 0px;
+$Shadow-45Position-6:-8px 8px 16px 0px;
+$Shadow-45Position-7:-16px 16px 24px 0px;
+$Shadow-45Position-8:-24px 24px 32px 0px;
+$Shadow-45Position-9:-32px 32px 56px 0px;
+$Shadow-45Position-10:-56px 56px 72px 0px;
+
+$Shadow-45-lev1:$Shadow-45Position-1 $rgbaVal-1, $Shadow-45Position-2 $rgbaVal-2;
+$Shadow-45-lev2:$Shadow-45Position-3 $rgbaVal-1, $Shadow-45Position-4 $rgbaVal-2;
+$Shadow-45-lev3:$Shadow-45Position-5 $rgbaVal-1, $Shadow-45Position-6 $rgbaVal-2, $Shadow-45Position-7 $rgbaVal-2;
+$Shadow-45-lev4:$Shadow-45Position-6 $rgbaVal-1, $Shadow-45Position-8 $rgbaVal-2, $Shadow-45Position-9 $rgbaVal-3;
+$Shadow-45-lev5:$Shadow-45Position-7 $rgbaVal-3, $Shadow-45Position-9 $rgbaVal-3, $Shadow-45Position-10 $rgbaVal-3;
+
+:root{
+
+  --ShadowCenter-lev1:#{$ShadowCenter-lev1};
+  --ShadowCenter-lev2:#{$ShadowCenter-lev2};
+  --ShadowCenter-lev3:#{$ShadowCenter-lev3};
+  --ShadowCenter-lev4:#{$ShadowCenter-lev4};
+  --ShadowCenter-lev5:#{$ShadowCenter-lev5};
+
+  --ShadowBottom-lev1:#{$ShadowBottom-lev1};
+  --ShadowBottom-lev2:#{$ShadowBottom-lev2};
+  --ShadowBottom-lev3:#{$ShadowBottom-lev3};
+  --ShadowBottom-lev4:#{$ShadowBottom-lev4};
+  --ShadowBottom-lev5:#{$ShadowBottom-lev5};
+
+  --ShadowRight-lev1:#{$ShadowRight-lev1};
+  --ShadowRight-lev2:#{$ShadowRight-lev2};
+  --ShadowRight-lev3:#{$ShadowRight-lev3};
+  --ShadowRight-lev4:#{$ShadowRight-lev4};
+  --ShadowRight-lev5:#{$ShadowRight-lev5};
+
+  --ShadowLeft-lev1:#{$ShadowLeft-lev1};
+  --ShadowLeft-lev2:#{$ShadowLeft-lev2};
+  --ShadowLeft-lev3:#{$ShadowLeft-lev3};
+  --ShadowLeft-lev4:#{$ShadowLeft-lev4};
+  --ShadowLeft-lev5:#{$ShadowLeft-lev5};
+
+  --ShadowTop-lev1:#{$ShadowTop-lev1};
+  --ShadowTop-lev2:#{$ShadowTop-lev2};
+  --ShadowTop-lev3:#{$ShadowTop-lev3};
+  --ShadowTop-lev4:#{$ShadowTop-lev4};
+  --ShadowTop-lev5:#{$ShadowTop-lev5};
+
+  --Shadow45-lev1:#{$Shadow45-lev1};
+  --Shadow45-lev2:#{$Shadow45-lev2};
+  --Shadow45-lev3:#{$Shadow45-lev3};
+  --Shadow45-lev4:#{$Shadow45-lev4};
+  --Shadow45-lev5:#{$Shadow45-lev5};
+
+  --Shadow-45-lev1:#{$Shadow-45-lev1};
+  --Shadow-45-lev2:#{$Shadow-45-lev2};
+  --Shadow-45-lev3:#{$Shadow-45-lev3};
+  --Shadow-45-lev4:#{$Shadow-45-lev4};
+  --Shadow-45-lev5:#{$Shadow-45-lev5};
+  
+}
+$Levs : 'lev1','lev2','lev3','lev4','lev5';
+
+@each $Levs_list in $Levs {
+  .shadowCenter-#{$Levs_list}{box-shadow:var(--ShadowCenter-#{$Levs_list});}
+}
+@each $Levs_list in $Levs {
+  .shadowBottom-#{$Levs_list}{box-shadow:var(--ShadowBottom-#{$Levs_list});}
+}
+@each $Levs_list in $Levs {
+  .shadowRight-#{$Levs_list}{box-shadow:var(--ShadowRight-#{$Levs_list});}
+}
+@each $Levs_list in $Levs {
+  .shadowLeft-#{$Levs_list}{box-shadow:var(--ShadowLeft-#{$Levs_list});}
+}
+@each $Levs_list in $Levs {
+  .shadowTop-#{$Levs_list}{box-shadow:var(--ShadowTop-#{$Levs_list});}
+}
+@each $Levs_list in $Levs {
+  .shadow45-#{$Levs_list}{box-shadow:var(--Shadow45-#{$Levs_list});}
+}
+@each $Levs_list in $Levs {
+  .shadow-45-#{$Levs_list}{box-shadow:var(--Shadow-45-#{$Levs_list});}
+}
+//인풋 시스템 세팅 시 레이블이 있고 없고 차이가 있음 글자의 위치가 레이블 없음에는 정가운대 이지만 있다면 2px 밑이다. 모바일에사는 height 32px 마지노선  더 작은 사이즈에서는 그리드 용 밖에 없음 모바일 사이즈를 정의할떄는 최소 32 값이 된다. 예) 피씨 40 -> 모바일 32 피씨 32-> 모바일 32 이렇게.

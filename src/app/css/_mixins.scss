@@ -1,0 +1,467 @@
+@mixin interval-border-box($spacing, $border-color, $border-width) {
+  padding-bottom: $spacing;
+  margin-bottom: $spacing;
+  border-bottom: $border-width solid $border-color;
+}
+@mixin interval($margin-bottom) {
+  margin-bottom: $margin-bottom;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+@mixin radius-individual($Yposition1,$Xposition1,$Yposition2,$Xposition2,$value) {
+  border-#{$Yposition1}-#{$Xposition1}-radius:#{$value};
+  border-#{$Yposition2}-#{$Xposition2}-radius:#{$value};
+}
+
+@mixin card-style($rgbaNum) {
+  background: linear-gradient(180deg,rgba(#{$rgbaNum}, 0.85) 0%,rgba(#{$rgbaNum}, 0.55) 100%);
+}
+@mixin card-style1($paddingYVal,$paddingXVal){
+  border-radius: 16px;
+  border: 1px solid var(--gray-300);
+  background: var(--gradient-1);
+  backdrop-filter: blur(50px);
+  box-shadow: var(--Shadow-45-lev3);
+  padding:$paddingYVal $paddingXVal;
+}
+@mixin card-style2($paddingYVal,$paddingXVal){
+  border-radius:16rem;
+  border: 1px solid var(--gray-300);
+  background: var(--gradient-1);
+  backdrop-filter: blur(50px);
+  box-shadow: var(--Shadow-45-lev2);
+  padding:$paddingYVal $paddingXVal;
+}
+@mixin row-col-interver($y: 0,$x){
+  &{
+    margin-top:-$y;
+    margin-bottom:-$y;
+    margin-left:-$x;
+    margin-right:-$x;
+    &>div{
+      padding:$y $x;
+    }
+  }
+}
+@mixin ellipsis($count,$line-H,$Hyte: height){
+  display: -webkit-box;
+  -webkit-line-clamp: $count;   /* 최대 줄 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-break: break-word;  /* 단어 잘라서 줄바꿈 허용 */
+  line-height:$line-H;
+  //max-height:calc(#{$line-H}em * $count);
+  $Hyte:calc(#{$line-H}em * $count);
+}
+@mixin swiperBtnInit(){
+  [class*="swiper-button-"]{
+    display: flex;
+    background-image: none;
+    padding:0;
+    width: auto;
+    height: auto;
+    &::after{
+      display: none;
+    }
+    &>i{
+      padding:0;
+      font-size: 24rem;
+    }
+  }
+}  
+@mixin flexWidth($width,$padding){
+  $paddingVal: $padding * 2;
+  flex-basis:$width + $paddingVal ;
+  max-width:$width + $paddingVal;
+}
+@mixin flexWidth100perMius($width,$padding){
+  $vals: $padding * 2 + $width;
+  flex-basis:calc(100% - $vals);
+  max-width:calc(100% - $vals);
+}    
+
+@mixin inherit($properties...) {
+  @each $prop in $properties {
+    #{$prop}: inherit;
+  }
+}
+
+@mixin darkColor($color: #fff) {
+  .dark-mode & {
+    color: $color;
+  }
+}
+@mixin darkBg($val) {
+  .dark-mode & {
+    background: #{$val};
+  }
+}
+@mixin darkBorderColor($val) {
+  .dark-mode & {
+    border-color: #{$val};
+  }
+}               
+//본문 18px -> 20px
+/* body/프리 본문 텍스트 */
+@mixin FreeBodyTxt($Size:15px,$lineheight:1.4,$weight:400){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+
+  .SeniorMode & {
+    font-size: $Size + 1px;
+    line-height: $lineheight + 0.1; // 1.4 -> 1.5
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 1px;
+      line-height: $lineheight + 0.1; // 1.4 -> 1.5
+    }
+    .SeniorMode & {
+      font-size: $Size + 3px;
+     line-height: $lineheight + 0.1; // 1.4 -> 1.5
+    }
+  }
+}
+/* heading6/프리 헤딩6 텍스트 */
+@mixin FreeHeading6Txt($Size:18px,$lineheight:1.4,$weight:600){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+
+  .SeniorMode & {
+    font-size: $Size + 2px;
+    line-height: $lineheight + 0.1; // 1.4 -> 1.5
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size;
+      line-height: $lineheight + 0.1; // 1.4 -> 1.5
+    }
+    .SeniorMode & {
+      font-size: $Size + 2px;
+     line-height: $lineheight + 0.1; // 1.4 -> 1.5
+    }
+  }
+}
+/* //heading6/프리 헤딩6 텍스트 */
+/* heading6/프리 헤딩5 텍스트 */
+@mixin FreeHeading5Txt($Size:20px,$lineheight:1.3,$weight:600){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+
+  .SeniorMode & {
+    font-size: $Size + 2px;
+    line-height: $lineheight + 0.1; // 1.4 -> 1.5
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size;
+      line-height: $lineheight + 0.15; // 1.4 -> 1.5
+    }
+    .SeniorMode & {
+      font-size: $Size + 2px;
+     line-height: $lineheight + 0.15; // 1.4 -> 1.5
+    }
+  }
+}
+/* heading4/프리 헤딩4 텍스트 */
+@mixin FreeHeading4Txt($Size:22px,$lineheight:1.31,$weight:300){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+
+  .SeniorMode & {
+    font-size: $Size + 2px;
+    line-height: $lineheight + 0.1; // 1.4 -> 1.5
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 2px;
+      line-height: $lineheight + 0.03; 
+    }
+    .SeniorMode & {
+      font-size: $Size + 2px;
+      line-height: $lineheight + 0.15; // 1.4 -> 1.5
+    }
+  }
+}
+/* heading4/프리 헤딩3 텍스트 */
+@mixin FreeHeading3Txt($Size:24px,$lineheight:1,$weight:300){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+
+  .SeniorMode & {
+    font-size: $Size + 2px;
+    line-height: $lineheight + 0.1; // 1.4 -> 1.5
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 4px;
+      line-height: $lineheight; 
+    }
+    .SeniorMode & {
+      font-size: $Size + 6px;
+      line-height: $lineheight ; // 1.4 -> 1.5
+    }
+  }
+}
+
+@mixin SuiteHeading2Txt($Size:28px,$lineheight:1,$weight:800){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'SUITE';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 4px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin SuiteHeading3Txt($Size:24px,$lineheight:1.4,$weight:800){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'SUITE';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 4px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin SuiteHeading4Txt($Size:22px,$lineheight:1.3,$weight:700){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'SUITE';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 2px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin SuiteHeading5Txt($Size:20px,$lineheight:1,$weight:700){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'SUITE';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      //font-size: $Size;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin SuiteHeading6Txt($Size:16px,$lineheight:1,$weight:700){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'SUITE';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 2px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+/*스위트 디스 스몰 텍스트*/
+@mixin SuiteDisTxt($Size:40px,$lineheight:1.25,$weight:800){
+  font-size: $Size;
+  line-height: $lineheight;
+  font-weight: $weight;
+  font-family: 'SUITE';
+  .SeniorMode & {
+    
+  }
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 8px; 
+     
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin MontserratHeading3Txt($Size:24px,$lineheight:1,$weight:700){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'Montserrat';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 4px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin MontserratHeading4Txt($Size:22px,$lineheight:1,$weight:600){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'Montserrat';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 2px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin MontserratHeading6Txt($Size:18px,$lineheight:1,$weight:600){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  font-family: 'Montserrat';
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 0px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+@mixin FreeCaptionM($Size:12px,$lineheight:1,$weight:300){
+  font-size: $Size;
+  line-height: $lineheight; // 단위를 % 대신 배율(1.4)로 쓰는 게 안전
+  font-weight: $weight;
+  .SeniorMode & {
+   
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      font-size: $Size + 0px;   
+    }
+    .SeniorMode & {
+    
+    }
+  }
+}
+/* //heading6/프리 헤딩5 텍스트 */
+
+
+.FreeHeading3Txt{
+  @include FreeHeading3Txt();
+}
+.FreeHeading4Txt{
+  @include FreeHeading4Txt();
+}
+.FreeHeading6Txt{
+  @include FreeHeading6Txt();
+}
+.FreeHeading5Txt{
+  @include FreeHeading5Txt();
+}
+.MontserratHeading4Txt{
+  @include MontserratHeading4Txt();
+}
+.FreeBodyTxt{
+  @include FreeBodyTxt();
+}
+.SuiteHeading3Txt{
+  @include SuiteHeading3Txt();
+}
+.SuiteHeading4Txt{
+  @include SuiteHeading4Txt();
+}
+.SuiteHeading5Txt{
+  @include SuiteHeading5Txt();
+}
+.FreeCaptionM{
+  @include FreeCaptionM();
+}
+
+
+// 1. 중단점(Breakpoints) 토큰 정의
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1680px
+) !default;
+
+// 토큰 또는 직접 입력한 px 값을 반환하는 헬퍼 함수
+@function bp($key) {
+  @if map-has-key($breakpoints, $key) {
+    @return map-get($breakpoints, $key);
+  }
+  @return $key;
+}
+// 2. 반응형 믹스인 (min-width, max-width 단독 및 동시 지원)
+@mixin respond($min: null, $max: null) {
+  @if $min != null and $max != null {
+    @media (min-width: bp($min)) and (max-width: bp($max)) {
+      @content;
+    }
+  } @else if $min != null {
+    @media (min-width: bp($min)) {
+      @content;
+    }
+  } @else if $max != null {
+    @media (max-width: bp($max)) {
+      @content;
+    }
+  }
+}
